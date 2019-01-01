@@ -13,18 +13,19 @@ void setup() {
   Serial.begin(9600);
   pinMode(redLedPin, OUTPUT);
   pinMode(yellowLedPin, OUTPUT);
+
+  redBlinkQty = readFromUserInput("Red");
+  yellowBlinkQty = readFromUserInput("Yellow");
 }
 
 // the loop function runs over and over again forever
 void loop() {
 
-  redBlinkQty = readFromUserInput("Red");  
   for(int i = 0; i < redBlinkQty; i++) {
     writeDigitalAndDelay(redLedPin, blinkingDelay, HIGH);
     writeDigitalAndDelay(redLedPin, blinkingDelay, LOW);
   }
-
-  yellowBlinkQty = readFromUserInput("Yellow");  
+   
   for(int i = 0; i < yellowBlinkQty; i++) {
     writeDigitalAndDelay(yellowLedPin, blinkingDelay, HIGH);
     writeDigitalAndDelay(yellowLedPin, blinkingDelay, LOW);
